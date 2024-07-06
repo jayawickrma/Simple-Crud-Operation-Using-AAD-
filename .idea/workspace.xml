@@ -9,12 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="setting uuid and pass data using DTO object and ArrayList">
-      <change afterPath="$PROJECT_DIR$/WEB-INF/web.xml" afterDir="false" />
+    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="add database and work and share data with database">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/DTO/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/DTO/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +71,12 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nisha\AAD\studentmanagement_AAD\src\main\webapp" />
+      <recent name="C:\Users\Nisha\AAD\studentmanagement_AAD\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 11.0.0-M20" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 11.0.0-M20" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
@@ -174,7 +181,7 @@
       <workItem from="1720153075727" duration="2026000" />
       <workItem from="1720155141051" duration="1961000" />
       <workItem from="1720235777541" duration="12594000" />
-      <workItem from="1720252158963" duration="2185000" />
+      <workItem from="1720252158963" duration="5215000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -225,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720248918580</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add database and work and share data with database">
+      <created>1720254595617</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720254595617</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +253,7 @@
     <MESSAGE value="input data usng jsonArray" />
     <MESSAGE value="setting uuid and pass data using DTO object and bind that class" />
     <MESSAGE value="setting uuid and pass data using DTO object and ArrayList" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting uuid and pass data using DTO object and ArrayList" />
+    <MESSAGE value="add database and work and share data with database" />
+    <option name="LAST_COMMIT_MESSAGE" value="add database and work and share data with database" />
   </component>
 </project>

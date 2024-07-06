@@ -29,7 +29,7 @@ import static jakarta.json.Json.createReader;
 @WebServlet(urlPatterns = "/student")
 public class studentController extends HttpServlet {
     Connection connection;
-    static  String save_student ="INSERT INTO STUDENT VALUES (?,?,?,?,?)";
+    static  String save_student ="INSERT INTO students(id,name,email,city,level) VALUES(?,?,?,?,?)";
     @Override
     public void init() throws ServletException {
         try {
@@ -39,7 +39,7 @@ public class studentController extends HttpServlet {
         var password =getServletContext().getInitParameter("dbPassword");
 
             Class.forName(driver);
-            connection = DriverManager.getConnection(dburl,username,password);
+           this.connection = DriverManager.getConnection(dburl,username,password);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -57,20 +57,20 @@ public class studentController extends HttpServlet {
           //send error
             resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);
         }
-        String ID = UUID.randomUUID().toString();
+       // String ID = UUID.randomUUID().toString();
         Jsonb jsonb = JsonbBuilder.create();
         Student student1 = jsonb.fromJson(req.getReader(), Student.class);
-        student1.setId(ID);
+
         System.out.println(student1);    //   using student class and ad only i student
 
             try{
                 var ps =connection.prepareStatement(save_student);
                 ps.setString(1,student1.getId());
                 ps.setString(2,student1.getName());
-                ps.setString(3,student1.getCity());
-                ps.setString(4,student1.getEmail());
-                ps.setString(4,student1.getLevel());
-                if (ps.executeUpdate() !=0){
+                ps.setString(3,student1.getEmail());
+                ps.setString(4,student1.getCity());
+                ps.setString(5,student1.getLevel());
+                if (ps.executeUpdate()!=0){
                     resp.getWriter().write("student saved");
                 }
             } catch (SQLException e) {

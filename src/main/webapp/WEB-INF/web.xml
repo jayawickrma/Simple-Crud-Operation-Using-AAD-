@@ -9,7 +9,7 @@
 
     <context-param>
         <param-name>dbURL</param-name>
-        <param-value>jdbc:mysql://localhost:3306:aad67JavaEE?createDatabaseIfNotExist</param-value>
+        <param-value>jdbc:mysql://localhost:3306/aad67JavaEE?createDatabaseIfNotExist=true</param-value>
     </context-param>
 
     <context-param>
