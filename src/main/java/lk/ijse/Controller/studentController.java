@@ -39,7 +39,11 @@ public class studentController extends HttpServlet {
         }
         String ID = UUID.randomUUID().toString();
         Jsonb jsonb = JsonbBuilder.create();
-        List<Student>student = jsonb.fromJson(req.getReader(),new ArrayList<Student>(){}.getClass().getGenericSuperclass());  //front end eken ena data tika bind wenna ona class eka
+//        Student student1 = jsonb.fromJson(req.getReader(), Student.class);
+//        student1.setId(ID);
+//        System.out.println(student1);       using student class and ad only i student
+
+        List<Student>student = jsonb.fromJson(req.getReader(),new ArrayList<Student>(){}.getClass().getGenericSuperclass());  //front end eken ena data tika bind wenna ona class eka(add student list as an array)
         student.forEach(System.out::println);
 
 
