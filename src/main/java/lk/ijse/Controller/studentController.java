@@ -17,9 +17,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.rmi.server.UID;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -30,6 +28,7 @@ import static jakarta.json.Json.createReader;
 public class studentController extends HttpServlet {
     Connection connection;
     static  String save_student ="INSERT INTO students(id,name,email,city,level) VALUES(?,?,?,?,?)";
+    static String get_student ="SELECT * FROM students WHERE id =?";
     @Override
     public void init() throws ServletException {
         try {
@@ -48,6 +47,29 @@ public class studentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Todo: get student details
+        var Student =new Student();
+        var id = req.getParameter("id");
+        try {
+          try (var writer = resp.getWriter()) {
+             var ps =connection.prepareStatement(get_student);
+             ps.setString(1,id);
+            var resultSet =ps.executeQuery();
+            while (resultSet.next()){
+                Student.setId(resultSet.getString("id"));
+                Student.setName(resultSet.getString("name"));
+                Student.setEmail(resultSet.getString("email"));
+                Student.setCity(resultSet.getString("city"));
+                Student.setLevel(resultSet.getString("level"));
+            }
+              System.out.println(Student);
+            resp.setContentType("application/json");
+            var json =JsonbBuilder.create();
+            json.toJson(Student,resp.getWriter());
+          }
+
+      } catch (Exception e) {
+          throw new RuntimeException(e);
+      }
     }
 
     @Override
