@@ -17,6 +17,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.rmi.server.UID;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -25,6 +28,23 @@ import static jakarta.json.Json.createReader;
 
 @WebServlet(urlPatterns = "/student")
 public class studentController extends HttpServlet {
+    Connection connection;
+    static  String save_student ="INSERT INTO STUDENT VALUES (?,?,?,?,?)";
+    @Override
+    public void init() throws ServletException {
+        try {
+        var driver = getServletContext().getInitParameter("driver-class");
+        var dburl =getServletContext().getInitParameter("dbURL");
+        var username =getServletContext().getInitParameter("dbUserName");
+        var password =getServletContext().getInitParameter("dbPassword");
+
+            Class.forName(driver);
+            connection = DriverManager.getConnection(dburl,username,password);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Todo: get student details
@@ -39,12 +59,27 @@ public class studentController extends HttpServlet {
         }
         String ID = UUID.randomUUID().toString();
         Jsonb jsonb = JsonbBuilder.create();
-//        Student student1 = jsonb.fromJson(req.getReader(), Student.class);
-//        student1.setId(ID);
-//        System.out.println(student1);       using student class and ad only i student
+        Student student1 = jsonb.fromJson(req.getReader(), Student.class);
+        student1.setId(ID);
+        System.out.println(student1);    //   using student class and ad only i student
 
-        List<Student>student = jsonb.fromJson(req.getReader(),new ArrayList<Student>(){}.getClass().getGenericSuperclass());  //front end eken ena data tika bind wenna ona class eka(add student list as an array)
-        student.forEach(System.out::println);
+            try{
+                var ps =connection.prepareStatement(save_student);
+                ps.setString(1,student1.getId());
+                ps.setString(2,student1.getName());
+                ps.setString(3,student1.getCity());
+                ps.setString(4,student1.getEmail());
+                ps.setString(4,student1.getLevel());
+                if (ps.executeUpdate() !=0){
+                    resp.getWriter().write("student saved");
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+
+//        List<Student>student = jsonb.fromJson(req.getReader(),new ArrayList<Student>(){}.getClass().getGenericSuperclass());  //front end eken ena data tika bind wenna ona class eka(add student list as an array)
+//        student.forEach(System.out::println);
 
 
         //process
