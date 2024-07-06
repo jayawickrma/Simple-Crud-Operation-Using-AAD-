@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="input data usng jsonArray">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="setting uuid and pass data using DTO object and bind that class">
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +158,7 @@
       <workItem from="1720024434181" duration="3636000" />
       <workItem from="1720153075727" duration="2026000" />
       <workItem from="1720155141051" duration="1961000" />
-      <workItem from="1720235777541" duration="7911000" />
+      <workItem from="1720235777541" duration="9111000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -191,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720246578925</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="setting uuid and pass data using DTO object and bind that class">
+      <created>1720247576480</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720247576480</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +206,7 @@
     <MESSAGE value="sending request with data to IJ" />
     <MESSAGE value="sending request with data to IJ option 2" />
     <MESSAGE value="input data usng jsonArray" />
-    <option name="LAST_COMMIT_MESSAGE" value="input data usng jsonArray" />
+    <MESSAGE value="setting uuid and pass data using DTO object and bind that class" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting uuid and pass data using DTO object and bind that class" />
   </component>
 </project>

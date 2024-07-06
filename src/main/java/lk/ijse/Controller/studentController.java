@@ -17,6 +17,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.rmi.server.UID;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static jakarta.json.Json.createReader;
@@ -37,9 +39,8 @@ public class studentController extends HttpServlet {
         }
         String ID = UUID.randomUUID().toString();
         Jsonb jsonb = JsonbBuilder.create();
-        Student student = jsonb.fromJson(req.getReader(), Student.class);  //front end eken ena data tika bind wenna ona class eka
-        student.setId(ID);
-        System.out.println(student);
+        List<Student>student = jsonb.fromJson(req.getReader(),new ArrayList<Student>(){}.getClass().getGenericSuperclass());  //front end eken ena data tika bind wenna ona class eka
+        student.forEach(System.out::println);
 
 
         //process
