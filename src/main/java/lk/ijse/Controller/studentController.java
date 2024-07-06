@@ -1,6 +1,7 @@
-package com.example.studentmanagement_aad;
+package lk.ijse.Controller;
 
 import jakarta.json.Json;
+import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 import jakarta.servlet.ServletException;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Writer;
 
 import static jakarta.json.Json.createReader;
 
@@ -38,11 +40,13 @@ public class studentController extends HttpServlet {
 //        writer.close();
 
 
-        //Json emulate with parson
+//        //Json emulate with parson
         JsonReader reader = Json.createReader(req.getReader());
-        JsonObject jsonObject =reader.readObject();
-        System.out.println(jsonObject.getString("email"));
-
+        JsonArray jsonArray =reader.readArray();
+        for (int i =0 ;i<jsonArray.size();i++){
+            JsonObject jsonObject =jsonArray.getJsonObject(i);
+            System.out.println(jsonObject.getString("name"));
+        }
     }
 
     @Override
