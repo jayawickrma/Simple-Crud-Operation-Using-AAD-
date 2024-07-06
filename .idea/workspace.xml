@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="sending request with data to IJ option 2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/DTO/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/studentmanagement_aad/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
+    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="input data usng jsonArray">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 11.0.0-M20" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 11.0.0-M20" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
@@ -159,7 +161,7 @@
       <workItem from="1720024434181" duration="3636000" />
       <workItem from="1720153075727" duration="2026000" />
       <workItem from="1720155141051" duration="1961000" />
-      <workItem from="1720235777541" duration="5778000" />
+      <workItem from="1720235777541" duration="7911000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -182,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719658773114</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="input data usng jsonArray">
+      <created>1720246578925</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720246578925</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +201,7 @@
     <MESSAGE value="making simple AAD crud operations first step" />
     <MESSAGE value="sending request with data to IJ" />
     <MESSAGE value="sending request with data to IJ option 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="sending request with data to IJ option 2" />
+    <MESSAGE value="input data usng jsonArray" />
+    <option name="LAST_COMMIT_MESSAGE" value="input data usng jsonArray" />
   </component>
 </project>

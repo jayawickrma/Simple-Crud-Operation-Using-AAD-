@@ -4,15 +4,20 @@ import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lk.ijse.DTO.Student;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
+import java.rmi.server.UID;
+import java.util.UUID;
 
 import static jakarta.json.Json.createReader;
 
@@ -30,6 +35,13 @@ public class studentController extends HttpServlet {
           //send error
             resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);
         }
+        String ID = UUID.randomUUID().toString();
+        Jsonb jsonb = JsonbBuilder.create();
+        Student student = jsonb.fromJson(req.getReader(), Student.class);  //front end eken ena data tika bind wenna ona class eka
+        student.setId(ID);
+        System.out.println(student);
+
+
         //process
 //        BufferedReader reader =req.getReader();
 //        StringBuilder sb =new StringBuilder();
@@ -41,12 +53,12 @@ public class studentController extends HttpServlet {
 
 
 //        //Json emulate with parson
-        JsonReader reader = Json.createReader(req.getReader());
-        JsonArray jsonArray =reader.readArray();
-        for (int i =0 ;i<jsonArray.size();i++){
-            JsonObject jsonObject =jsonArray.getJsonObject(i);
-            System.out.println(jsonObject.getString("name"));
-        }
+//        JsonReader reader = Json.createReader(req.getReader());
+//        JsonArray jsonArray =reader.readArray();
+//        for (int i =0 ;i<jsonArray.size();i++){
+//            JsonObject jsonObject =jsonArray.getJsonObject(i);
+//            System.out.println(jsonObject.getString("name"));
+//        }
     }
 
     @Override
