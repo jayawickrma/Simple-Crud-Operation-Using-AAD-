@@ -30,7 +30,8 @@ public class studentController extends HttpServlet {
     Connection connection;
     static  String save_student ="INSERT INTO students(id,name,email,city,level) VALUES(?,?,?,?,?)";
     static String get_student ="SELECT * FROM students WHERE id =?";
-    static String update_student="UPDATE students SET id=?,name=?,email=?,city=?,level=? WHERE ID=?";
+    static String update_student="UPDATE students SET id=?,name=?,email=?,city=?,level=? WHERE id=?";
+    static String delete_student ="DELETE FROM students WHERE id=?";
     @Override
     public void init() throws ServletException {
         try {
@@ -150,5 +151,18 @@ public class studentController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Todo: delete student
+        var id =req.getParameter("id");
+        try(var writer=resp.getWriter()){
+            var ps =connection.prepareStatement(delete_student);
+            ps.setString(1,id);
+            if (ps.executeUpdate()>0){
+                writer.write("student deleted");
+            }else {
+                writer.write("somethung went wrong");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
