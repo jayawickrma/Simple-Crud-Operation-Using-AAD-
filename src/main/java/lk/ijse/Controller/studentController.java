@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.DTO.Student;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
@@ -29,6 +30,7 @@ public class studentController extends HttpServlet {
     Connection connection;
     static  String save_student ="INSERT INTO students(id,name,email,city,level) VALUES(?,?,?,?,?)";
     static String get_student ="SELECT * FROM students WHERE id =?";
+    static String update_student="UPDATE students SET id=?,name=?,email=?,city=?,level=? WHERE ID=?";
     @Override
     public void init() throws ServletException {
         try {
@@ -126,6 +128,23 @@ public class studentController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          //Todo: update student
+        var id =req.getParameter("id");
+        try (var writer=resp.getWriter()){
+            var ps =connection.prepareStatement(update_student);
+            ps.setString(1,req.getParameter("name"));
+            ps.setString(2,req.getParameter("email"));
+            ps.setString(3,req.getParameter("city"));
+            ps.setString(4,req.getParameter("level"));
+            ps.setString(5,id);
+
+            if (ps.executeUpdate()>0){
+              writer.write("student updated");
+            }else {
+                writer.write("something went wrong when updating student details");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
