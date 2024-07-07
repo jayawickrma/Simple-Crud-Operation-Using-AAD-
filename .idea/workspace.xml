@@ -9,8 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="data added to database completly">
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
+    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="get customer complet done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +176,7 @@
       <workItem from="1720153075727" duration="2026000" />
       <workItem from="1720155141051" duration="1961000" />
       <workItem from="1720235777541" duration="12594000" />
-      <workItem from="1720252158963" duration="7153000" />
+      <workItem from="1720252158963" duration="8423000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720259689813</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="get customer complet done">
+      <created>1720261799507</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720261799507</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +264,7 @@
     <MESSAGE value="setting uuid and pass data using DTO object and ArrayList" />
     <MESSAGE value="add database and work and share data with database" />
     <MESSAGE value="data added to database completly" />
-    <option name="LAST_COMMIT_MESSAGE" value="data added to database completly" />
+    <MESSAGE value="get customer complet done" />
+    <option name="LAST_COMMIT_MESSAGE" value="get customer complet done" />
   </component>
 </project>
