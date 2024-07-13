@@ -2,14 +2,13 @@ package lk.ijse.Controller;
 
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
-import jakarta.json.bind.JsonbException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.DTO.Student;
-import lk.ijse.Dao.DataProcess;
+import lk.ijse.Dao.impl.DataProcess;
 
 
 import java.io.IOException;
@@ -60,59 +59,24 @@ public class studentController extends HttpServlet {
           }
     }
 
-
-
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //Todo: save student
-        if (!req.getContentType().toLowerCase().contains("application/json")|| req.getContentType()==null){
-          //send error
-            resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);
+        var id =req.getParameter("id");
+        var dataProcess =new DataProcess();
+
+      try(var writer = resp.getWriter()) {
+            Student student =dataProcess.getstudent(id,connection);
+            resp.setContentType("application/json");
+            var jsonb = JsonbBuilder.create();
+            jsonb.toJson(student,writer);
         }
+
        // String ID = UUID.randomUUID().toString();
-        Jsonb jsonb = JsonbBuilder.create();
-        Student student1 = jsonb.fromJson(req.getReader(), Student.class);
-
-        System.out.println(student1);    //   using student class and ad only i student
-
-            try{
-                var ps =connection.prepareStatement(save_student);
-                ps.setString(1,student1.getId());
-                ps.setString(2,student1.getName());
-                ps.setString(3,student1.getEmail());
-                ps.setString(4,student1.getCity());
-                ps.setString(5,student1.getLevel());
-                if (ps.executeUpdate()!=0){
-                    resp.getWriter().write("student saved");
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
 
 
-//        List<Student>student = jsonb.fromJson(req.getReader(),new ArrayList<Student>(){}.getClass().getGenericSuperclass());  //front end eken ena data tika bind wenna ona class eka(add student list as an array)
-//        student.forEach(System.out::println);
 
 
-        //process
-//        BufferedReader reader =req.getReader();
-//        StringBuilder sb =new StringBuilder();
-//        var writer =resp.getWriter();
-//        reader.lines().forEach(line->sb.append(line+"\n"));
-//        System.out.println(sb);
-//        writer.write(sb.toString());
-//        writer.close();
-
-
-//        //Json emulate with parson
-//        JsonReader reader = Json.createReader(req.getReader());
-//        JsonArray jsonArray =reader.readArray();
-//        for (int i =0 ;i<jsonArray.size();i++){
-//            JsonObject jsonObject =jsonArray.getJsonObject(i);
-//            System.out.println(jsonObject.getString("name"));
-//        }
     }
 
     @Override
