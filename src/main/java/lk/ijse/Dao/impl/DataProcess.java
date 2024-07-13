@@ -2,7 +2,7 @@ package lk.ijse.Dao.impl;
 
 import lk.ijse.DTO.Student;
 import lk.ijse.Dao.StudentData;
-import lombok.var;
+
 
 
 import javax.xml.crypto.Data;

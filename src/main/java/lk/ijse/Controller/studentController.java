@@ -15,6 +15,7 @@ import lk.ijse.util.UtilProcess;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.rmi.RemoteException;
 import java.sql.*;
 
 import static jakarta.json.Json.createReader;
@@ -49,8 +50,16 @@ public class studentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Todo: get student details
+        var id = req.getParameter("id");
+        var dataProcess = new DataProcess();
+            try(var writer =resp.getWriter()){
+                var getstudent = dataProcess.getstudent(id, connection);
+                writer.write(String.valueOf(getstudent));
+                resp.setContentType("application/json");
+                var jsonb = JsonbBuilder.create();
+                jsonb.toJson(getstudent,writer);
 
-
+            }
     }
 
     @Override
@@ -59,16 +68,23 @@ public class studentController extends HttpServlet {
             //send error
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
-        // Persist Data
-
-
-
 
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Todo: update student
+        try(Writer writer =resp.getWriter()) {
+            var studentID =req.getParameter("id");
+            var jsonb = JsonbBuilder.create();
+            var dataProcess = new DataProcess();
+            var updateStudnt =jsonb.fromJson(req.getReader(), Student.class);
+            if (dataProcess.updatestudent(studentID,updateStudnt,connection)){
+                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            }else {
+                writer.write("student update failed");
+            }
+        }
 
     }
 

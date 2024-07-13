@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="update files dao and impl post method done completly">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/util/UtilProcess.java" afterDir="false" />
+    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="student model complete again A to Z">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Dao/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Dao/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Dao/impl/DataProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Dao/impl/DataProcess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +193,7 @@
       <workItem from="1720798754962" duration="111000" />
       <workItem from="1720840474017" duration="8000" />
       <workItem from="1720840500430" duration="20490000" />
-      <workItem from="1720865048702" duration="1196000" />
+      <workItem from="1720865048702" duration="6893000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -323,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720860363224</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="student model complete again A to Z">
+      <created>1720882303630</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720882303630</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,6 +350,7 @@
     <MESSAGE value="student update completly done" />
     <MESSAGE value="update files dao and impl get method done completly" />
     <MESSAGE value="update files dao and impl post method done completly" />
-    <option name="LAST_COMMIT_MESSAGE" value="update files dao and impl post method done completly" />
+    <MESSAGE value="student model complete again A to Z" />
+    <option name="LAST_COMMIT_MESSAGE" value="student model complete again A to Z" />
   </component>
 </project>
