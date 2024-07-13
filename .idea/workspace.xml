@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="student update done">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="add student">
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +191,7 @@
       <workItem from="1720798754962" duration="111000" />
       <workItem from="1720840474017" duration="8000" />
       <workItem from="1720840500430" duration="20490000" />
-      <workItem from="1720865048702" duration="9340000" />
+      <workItem from="1720865048702" duration="10312000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -341,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720885893381</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add student">
+      <created>1720887971847</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720887971847</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +371,7 @@
     <MESSAGE value="update files dao and impl post method done completly" />
     <MESSAGE value="student model complete again A to Z" />
     <MESSAGE value="student update done" />
-    <option name="LAST_COMMIT_MESSAGE" value="student update done" />
+    <MESSAGE value="add student" />
+    <option name="LAST_COMMIT_MESSAGE" value="add student" />
   </component>
 </project>

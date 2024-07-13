@@ -101,6 +101,15 @@ public class studentController extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        var id =req.getParameter("id");
+        try (Writer writer =resp.getWriter()){
+            var dataProcess = new DataProcess();
+                if (dataProcess.deletestudent(id,connection)){
+                    writer.write("student deleted");
+                }else{
+                    writer.write("student delete failed");
+                }
+        }
     }
 }
 
