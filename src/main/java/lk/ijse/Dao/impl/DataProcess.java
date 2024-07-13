@@ -41,12 +41,11 @@ public class DataProcess implements Data {
     public String saveStudent(Student student, Connection connection) {
         try{
             var ps =connection.prepareStatement(save_student);
-            var student1 = new Student();
-            ps.setString(1,student1.getId());
-            ps.setString(2,student1.getName());
-            ps.setString(3,student1.getEmail());
-            ps.setString(4,student1.getCity());
-            ps.setString(5,student1.getLevel());
+            ps.setString(1,student.getId());
+            ps.setString(2,student.getName());
+            ps.setString(3,student.getEmail());
+            ps.setString(4,student.getCity());
+            ps.setString(5,student.getLevel());
             if (ps.executeUpdate()!=0){
                 System.out.println("student saved successfully");
             }

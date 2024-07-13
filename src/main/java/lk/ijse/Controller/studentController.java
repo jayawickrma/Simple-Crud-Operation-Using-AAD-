@@ -62,13 +62,13 @@ public class studentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //Todo: save student
-        var id =req.getParameter("id");
-        var dataProcess =new DataProcess();
-
       try(var writer = resp.getWriter()) {
-            Student student =dataProcess.getstudent(id,connection);
+          var jsonb = JsonbBuilder.create();
+          Student student =jsonb.fromJson(req.getReader(),Student.class);
+          var savedata =new DataProcess();
+            writer.write(savedata.saveStudent(student,connection));
             resp.setContentType("application/json");
-            var jsonb = JsonbBuilder.create();
+
             jsonb.toJson(student,writer);
         }
 
@@ -82,6 +82,10 @@ public class studentController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          //Todo: update student
+        if(!req.getContentType().toLowerCase().startsWith("application/json")|| req.getContentType() == null){
+            //send error
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
 
         try (var writer=resp.getWriter()){
             var ps =connection.prepareStatement(update_student);
