@@ -80,7 +80,7 @@ public class studentController extends HttpServlet {
             var dataProcess = new DataProcess();
             var updateStudnt =jsonb.fromJson(req.getReader(), Student.class);
             if (dataProcess.updatestudent(studentID,updateStudnt,connection)){
-                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+                writer.write("student updated");
             }else {
                 writer.write("student update failed");
             }
