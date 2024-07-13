@@ -1,31 +1,30 @@
 package lk.ijse.Controller;
 
-import jakarta.json.Json;
-import jakarta.json.JsonArray;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonReader;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
+import jakarta.json.bind.JsonbException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.DTO.Student;
+import lk.ijse.Dao.DataProcess;
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Writer;
-import java.rmi.server.UID;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 import static jakarta.json.Json.createReader;
 
-@WebServlet(urlPatterns = "/student",loadOnStartup = 2)
+@WebServlet(urlPatterns = "/student",loadOnStartup = 2
+//        initParams = {
+//        @WebInitParam(name = "driver-class",value = "com.mysql.cj.jdbc.Driver"),
+//         @WebInitParam(name = "dbURL",value = "jdbc:mysql://localhost:3306/aad67JavaEE?createDatabaseIfNotExist=true"),
+//         @WebInitParam(name = "dbUserName",value = "root"),
+//         @WebInitParam(name = "dbPassword",value = "Ijse@1234")
+//        }
+)
 public class studentController extends HttpServlet {
     Connection connection;
     static  String save_student ="INSERT INTO students(id,name,email,city,level) VALUES(?,?,?,?,?)";
@@ -50,30 +49,20 @@ public class studentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Todo: get student details
-        var Student =new Student();
         var id = req.getParameter("id");
-        try {
-          try (var writer = resp.getWriter()) {
-             var ps =connection.prepareStatement(get_student);
-             ps.setString(1,id);
-            var resultSet =ps.executeQuery();
-            while (resultSet.next()){
-                Student.setId(resultSet.getString("id"));
-                Student.setName(resultSet.getString("name"));
-                Student.setEmail(resultSet.getString("email"));
-                Student.setCity(resultSet.getString("city"));
-                Student.setLevel(resultSet.getString("level"));
-            }
-              System.out.println(Student);
-            resp.setContentType("application/json");
-            var json =JsonbBuilder.create();
-            json.toJson(Student,resp.getWriter());
-          }
+        var dataProcess =new DataProcess();
 
-      } catch (Exception e) {
-          throw new RuntimeException(e);
-      }
+          try (var writer = resp.getWriter()) {
+              Student student1 = dataProcess.getstudent(id, connection);
+              resp.setContentType("application/json");
+              var jsonb = JsonbBuilder.create();
+              jsonb.toJson(student1, writer);
+          }
     }
+
+
+
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -161,7 +150,7 @@ public class studentController extends HttpServlet {
             if (ps.executeUpdate()>0){
                 writer.write("student deleted");
             }else {
-                writer.write("somethung went wrong");
+                writer.write("something went wrong");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
