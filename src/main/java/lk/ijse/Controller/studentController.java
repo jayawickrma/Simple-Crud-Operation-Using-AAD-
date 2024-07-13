@@ -25,12 +25,12 @@ import java.util.UUID;
 
 import static jakarta.json.Json.createReader;
 
-@WebServlet(urlPatterns = "/student")
+@WebServlet(urlPatterns = "/student",loadOnStartup = 2)
 public class studentController extends HttpServlet {
     Connection connection;
     static  String save_student ="INSERT INTO students(id,name,email,city,level) VALUES(?,?,?,?,?)";
     static String get_student ="SELECT * FROM students WHERE id =?";
-    static String update_student="UPDATE students SET id=?,name=?,email=?,city=?,level=? WHERE id=?";
+    static String update_student="UPDATE students SET name=?,email=?,city=?,level=? WHERE id=?";
     static String delete_student ="DELETE FROM students WHERE id=?";
     @Override
     public void init() throws ServletException {
@@ -129,13 +129,16 @@ public class studentController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          //Todo: update student
-        var id =req.getParameter("id");
+
         try (var writer=resp.getWriter()){
             var ps =connection.prepareStatement(update_student);
-            ps.setString(1,req.getParameter("name"));
-            ps.setString(2,req.getParameter("email"));
-            ps.setString(3,req.getParameter("city"));
-            ps.setString(4,req.getParameter("level"));
+            var id =req.getParameter("id");
+            Jsonb jsonb = JsonbBuilder.create();
+            Student student = jsonb.fromJson(req.getReader(), Student.class);
+            ps.setString(1,student.getName());
+            ps.setString(2,student.getEmail());
+            ps.setString(3,student.getCity());
+            ps.setString(4,student.getLevel());
             ps.setString(5,id);
 
             if (ps.executeUpdate()>0){
