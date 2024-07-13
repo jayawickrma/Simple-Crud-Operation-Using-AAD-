@@ -57,7 +57,7 @@ public class studentController extends HttpServlet {
                 writer.write(String.valueOf(getstudent));
                 resp.setContentType("application/json");
                 var jsonb = JsonbBuilder.create();
-                jsonb.toJson(getstudent,writer);
+                jsonb.toJson(getstudent,resp.getWriter());
 
             }
     }
@@ -68,6 +68,17 @@ public class studentController extends HttpServlet {
             //send error
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
+            try (Writer writer =resp.getWriter()){
+                var jsonb = JsonbBuilder.create();
+                Student student=jsonb.fromJson(req.getReader(), Student.class);
+                student.setId(UtilProcess.generateId());
+                var dataProcess = new DataProcess();
+               if(dataProcess.savestudent(student,connection)){
+                    writer.write("student saved successfully");
+                }else{
+                   writer.write("something went wrong");
+               }
+            }
 
     }
 
