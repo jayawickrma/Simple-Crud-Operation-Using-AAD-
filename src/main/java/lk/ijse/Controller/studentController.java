@@ -28,6 +28,7 @@ import static jakarta.json.Json.createReader;
 //         @WebInitParam(name = "dbPassword",value = "Ijse@1234")
 //        }
 )
+
 public class studentController extends HttpServlet {
     Connection connection;
 
@@ -70,7 +71,7 @@ public class studentController extends HttpServlet {
         }
             try (Writer writer =resp.getWriter()){
                 var jsonb = JsonbBuilder.create();
-                Student student=jsonb.fromJson(req.getReader(), Student.class);
+                Student student=jsonb.fromJson(req.getReader(), Student.class);  //me raw eke json bined ekk krla thnne
                 student.setId(UtilProcess.generateId());
                 var dataProcess = new DataProcess();
                 System.out.println(student);
