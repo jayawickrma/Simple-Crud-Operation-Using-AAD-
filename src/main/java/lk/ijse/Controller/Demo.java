@@ -10,8 +10,10 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/Demo",loadOnStartup = 1)
 public class Demo extends HttpServlet {
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String quaryString =req.getQueryString();
         System.out.println(quaryString);
+        var myheader = req.getHeader("X-myheader");
+        System.out.println(myheader);
     }
 }
