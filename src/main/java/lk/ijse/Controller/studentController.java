@@ -73,6 +73,7 @@ public class studentController extends HttpServlet {
                 Student student=jsonb.fromJson(req.getReader(), Student.class);
                 student.setId(UtilProcess.generateId());
                 var dataProcess = new DataProcess();
+                System.out.println(student);
                if(dataProcess.savestudent(student,connection)){
                     writer.write("student saved successfully");
                 }else{
