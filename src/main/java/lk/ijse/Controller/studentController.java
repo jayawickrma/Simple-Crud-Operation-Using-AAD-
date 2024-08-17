@@ -44,7 +44,9 @@ public class studentController extends HttpServlet {
 
             Class.forName(driver);
             this.connection = DriverManager.getConnection(dburl, username, password);
+            logger.trace(" started studentController methods ");
         } catch (ClassNotFoundException | SQLException e) {
+
             e.printStackTrace();
         }
     }
