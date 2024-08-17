@@ -1,7 +1,5 @@
 package lk.ijse.Controller;
 
-import jakarta.json.JsonException;
-import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,11 +9,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.DTO.Student;
 import lk.ijse.Dao.impl.DataProcess;
 import lk.ijse.util.UtilProcess;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.IOException;
 import java.io.Writer;
-import java.rmi.RemoteException;
 import java.sql.*;
 
 import static jakarta.json.Json.createReader;
@@ -30,11 +29,13 @@ import static jakarta.json.Json.createReader;
 )
 
 public class studentController extends HttpServlet {
+    static Logger logger= LoggerFactory.getLogger(studentController.class);
     Connection connection;
 
 
     @Override
     public void init() throws ServletException {
+        logger.info("initializing student controller with call init method ");
         try {
             var driver = getServletContext().getInitParameter("driver-class");
             var dburl = getServletContext().getInitParameter("dbURL");

@@ -10,14 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63b83ffc-76a0-49ca-a5ed-dbde7f47d80c" name="Changes" comment="10th august">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/filter/crosFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/Controller/studentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/filter/crosFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/filter/crosFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,7 +60,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nisha/AAD/studentmanagement_AAD/src/main/java/lk/ijse&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/ex&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -199,7 +205,12 @@
       <workItem from="1722273662849" duration="1121000" />
       <workItem from="1722917884537" duration="6000" />
       <workItem from="1723260217933" duration="8218000" />
-      <workItem from="1723276593661" duration="3834000" />
+      <workItem from="1723276593661" duration="7254000" />
+      <workItem from="1723664105578" duration="4357000" />
+      <workItem from="1723704086343" duration="609000" />
+      <workItem from="1723780428174" duration="679000" />
+      <workItem from="1723781735790" duration="594000" />
+      <workItem from="1723865007069" duration="6372000" />
     </task>
     <task id="LOCAL-00001" summary="making simple AAD crud operations first step">
       <created>1719651126541</created>
@@ -376,7 +387,21 @@
       <option name="project" value="LOCAL" />
       <updated>1723261961285</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="10th august">
+      <created>1723284707651</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1723284707651</updated>
+    </task>
+    <task id="LOCAL-00027" summary="10th august">
+      <created>1723284732350</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1723284732350</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
